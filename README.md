@@ -10,7 +10,7 @@ In this assignment we'll be looking at
 
 Given is a class which represents an animal with a lifecycle.
 The class is borrowed from a zoo game as you see when you inspect the given methods.
-In the following you can see the lifecycle of the animal modeled as state machine.
+In the following you can see the lifecycle of the animal modeled as [state machine](https://en.wikipedia.org/wiki/Finite-state_machine).
 
 1. it starts in a sleeping state
 2. after a certain time it awakes and is hungry
