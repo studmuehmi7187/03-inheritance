@@ -51,29 +51,24 @@ abstract class State {
     abstract State successor()
 }
 
-class DigestingState {
+class DigestingState extends State {
 }
 
-class HungryState {
+class HungryState extends State {
     State feed()
 }
 
-class PlayfulState {
+class PlayfulState extends State {
 }
 
-class SleepingState {
+class SleepingState extends State {
 }
 
-class DeathState {
+class DeathState extends State {
 }
 
-State *-- Animal : current state
-GenusSpecies *-- Animal: genus species
-GenusSpecies "n" *-- Animal: devours
+State --* Animal : current state
+GenusSpecies --* Animal: genus species
+GenusSpecies "n" --* Animal: devours
 
-State <|-- DigestingState
-State <|-- HungryState
-State <|-- PlayfulState
-State <|-- SleepingState
-State <|-- DeathState
 @enduml
