@@ -1,11 +1,11 @@
-package de.fhro.inf.prg3.inheritance;
+package de.fhro.inf.prg3.a03;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
 
-import static de.fhro.inf.prg3.inheritance.Animal.State.*;
+import static de.fhro.inf.prg3.a03.Animal.State.*;
 
 /**
  * @author Peter Kurfer
