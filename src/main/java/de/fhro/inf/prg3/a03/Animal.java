@@ -19,21 +19,22 @@ public class Animal {
 
 	private State state = State.SLEEPING;
 
-	/// state durations (set via constructor), ie. the number of ticks in each state
+	// state durations (set via constructor), ie. the number of ticks in each state
 	private final int sleep;
 	private final int awake;
 	private final int digest;
 
 	private final String name;
 
-	/// money you make, when people watch your animal
+	// money you make, when people watch your animal
 	private final int collectionAmount;
 	private final GenusSpecies genusSpecies;
 
-	/// those species this animal likes to eat
+	// those species this animal likes to eat
 	private final GenusSpecies[] devours;
 
 	private int time = 0;
+	private int timeSinceFeed;
 
 	public Animal(GenusSpecies genusSpecies, String name, GenusSpecies[] devours, int sleep, int awake, int digest, int collectionAmount) {
 		this.name = name;
@@ -65,10 +66,10 @@ public class Animal {
 				}
 				break;
 			case DIGESTING:
-				if (time == digest) {
+				if (++timeSinceFeed == digest) {
 					logger.info("Getting in a playful mood!");
 					state = PLAYFUL;
-					time = 0;
+					timeSinceFeed = 0;
 				}
 				break;
 			case PLAYFUL:

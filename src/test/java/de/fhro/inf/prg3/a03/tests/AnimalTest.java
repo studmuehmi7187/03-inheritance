@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class AnimalTest {
 
 	private static final int Sleep = 10;
-	private static final int Awake = 5;
+	private static final int Awake = 15;
 	private static final int Digest = 10;
 
 	private Animal animal;
@@ -65,7 +65,7 @@ public class AnimalTest {
 		IntStream.range(0, Sleep).forEach(i -> animal.tick());
 		animal.feed();
 		//Waiting while animal is digesting and in playful mood
-		IntStream.range(0, Digest + Awake).forEach(i -> animal.tick());
+		IntStream.range(0, Awake).forEach(i -> animal.tick());
 		assertTrue(animal.isAsleep());
 	}
 }
