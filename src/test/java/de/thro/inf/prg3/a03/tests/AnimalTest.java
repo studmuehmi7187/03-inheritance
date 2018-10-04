@@ -1,7 +1,7 @@
-package de.fhro.inf.prg3.a03.tests;
+package de.thro.inf.prg3.a03.tests;
 
-import de.fhro.inf.prg3.a03.Animal;
-import de.fhro.inf.prg3.a03.GenusSpecies;
+import de.thro.inf.prg3.a03.Animal;
+import de.thro.inf.prg3.a03.GenusSpecies;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
