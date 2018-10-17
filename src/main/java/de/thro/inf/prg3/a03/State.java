@@ -25,7 +25,7 @@ public abstract class State {
         if(++time == duration){
             return successor();
         }else {
-            logger.info(getClass().getName());
+            logger.info("Still in {}", getClass().getSimpleName());
             return this;
         }
     }
