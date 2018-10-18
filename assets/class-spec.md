@@ -1,5 +1,6 @@
 ```
 @startuml
+left to right direction
 enum GenusSpecies {
 
     LION,
@@ -68,6 +69,7 @@ class DeathState extends State {
 }
 
 State --* Animal : current state
+Animal --* State: animal
 GenusSpecies --* Animal: genus species
 GenusSpecies "n" --* Animal: devours
 
