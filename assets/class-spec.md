@@ -1,20 +1,7 @@
 ```
 @startuml
-left to right direction
-enum GenusSpecies {
 
-    LION,
-    GAZELLE,
-    FLAMINGO
-
-	-readableType: String
-    -type: String
-
-    +String getReadableType()
-    +String getType()
-}
-
-class Animal {
+class Cat {
 	-sleep: int
     -awake: int
     -digest: int
@@ -22,14 +9,9 @@ class Animal {
     -currentState: State
 
     -name: String
-    -genusSpecies: GenusSpecies
-    -devours: GenusSpecies[]
-    -collectionAmount: int
     
     +void feed()
     +void tick()
-    +int collect()
-    +boolean devours(Animal other)
 
     +boolean isAsleep()
     +boolean isPlayful()
@@ -45,18 +27,17 @@ class Animal {
 
 abstract class State {
 	#{static}logger: Logger
-    #animal: Animal
     -t: int
     -duration: int
-    State tick()
-    abstract State successor()
+    State tick(cat: Cat)
+    abstract State successor(cat: Cat)
 }
 
 class DigestingState extends State {
 }
 
 class HungryState extends State {
-    State feed()
+    State feed(a: Animal)
 }
 
 class PlayfulState extends State {
@@ -68,9 +49,6 @@ class SleepingState extends State {
 class DeathState extends State {
 }
 
-State --* Animal : current state
-Animal --* State: animal
-GenusSpecies --* Animal: genus species
-GenusSpecies "n" --* Animal: devours
+State --* Cat : current state
 
 @enduml

@@ -1,6 +1,6 @@
 package de.thro.inf.prg3.a03.states;
 
-import de.thro.inf.prg3.a03.Animal;
+import de.thro.inf.prg3.a03.Cat;
 import de.thro.inf.prg3.a03.State;
 
 /**
@@ -9,13 +9,13 @@ import de.thro.inf.prg3.a03.State;
  */
 public class PlayfulState extends State {
 
-    PlayfulState(Animal animal, int duration) {
-        super(animal, duration);
+    PlayfulState(int duration) {
+        super(duration);
     }
 
     @Override
-    public State successor() {
+    public State successor(Cat cat) {
         logger.info("Yoan... getting tired!");
-        return new SleepingState(animal, animal.getSleeping());
+        return new SleepingState(cat.getSleeping());
     }
 }

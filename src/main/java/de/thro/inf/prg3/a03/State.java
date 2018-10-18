@@ -3,34 +3,32 @@ package de.thro.inf.prg3.a03;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-/**
- * @author Peter Kurfer
- * Created on 10/13/17.
- */
 public abstract class State {
-
     protected static final Logger logger = LogManager.getLogger();
 
-    protected final Animal animal;
+    protected int time = 0;
     protected final int duration;
-    protected int time;
 
-    protected State(Animal animal, int duration){
-        this.animal = animal;
+    protected State(int duration){
         this.duration = duration;
     }
 
-    final State tick() {
-        if(duration < 0) return this;
-        if(++time == duration){
-            return successor();
-        }else {
-            logger.info("Still in {}", getClass().getSimpleName());
-            return this;
+    final State tick(Cat cat) {
+        if(duration < 0)
+        	return this;
+
+        // time goes by...
+        time = time + 1;
+
+        if(time < duration) {
+	        logger.info("Still in {}", getClass().getSimpleName());
+	        return this;
+        } else {
+            return successor(cat);
         }
     }
 
-    public abstract State successor();
+    public abstract State successor(Cat cat);
 
 }
 

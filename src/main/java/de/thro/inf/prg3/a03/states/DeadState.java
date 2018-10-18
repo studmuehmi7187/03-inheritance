@@ -1,6 +1,6 @@
 package de.thro.inf.prg3.a03.states;
 
-import de.thro.inf.prg3.a03.Animal;
+import de.thro.inf.prg3.a03.Cat;
 import de.thro.inf.prg3.a03.State;
 
 /**
@@ -9,12 +9,13 @@ import de.thro.inf.prg3.a03.State;
  */
 public class DeadState extends State {
 
-    DeadState(Animal animal, int duration) {
-        super(animal, duration);
+    DeadState() {
+        super(-1);
     }
 
     @Override
-    public State successor() {
-        throw new IllegalStateException("This is no buddhistic animal - reincarnation is no option!");
+    public State successor(Cat cat) {
+        // no lives left...
+        return this;
     }
 }

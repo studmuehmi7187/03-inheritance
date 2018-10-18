@@ -1,6 +1,6 @@
 package de.thro.inf.prg3.a03.states;
 
-import de.thro.inf.prg3.a03.Animal;
+import de.thro.inf.prg3.a03.Cat;
 import de.thro.inf.prg3.a03.State;
 
 /**
@@ -9,18 +9,18 @@ import de.thro.inf.prg3.a03.State;
  */
 public class HungryState extends State {
 
-    HungryState(Animal animal, int duration) {
-        super(animal, duration);
+    HungryState(int duration) {
+        super(duration);
     }
 
     @Override
-    public State successor() {
+    public State successor(Cat cat) {
         logger.info("I've been starving for a too long time...");
-        return new DeadState(animal, -1);
+        return new DeadState();
     }
 
-    public State feed(){
+    public State feed(Cat cat){
         logger.info("Om nom nom...");
-        return new DigestingState(animal, animal.getDigest(), duration - time);
+        return new DigestingState(cat.getDigest(), duration - time);
     }
 }
