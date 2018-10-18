@@ -1,7 +1,6 @@
 package de.thro.inf.prg3.a03.tests;
 
-import de.thro.inf.prg3.a03.Animal;
-import de.thro.inf.prg3.a03.GenusSpecies;
+import de.thro.inf.prg3.a03.Cat;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,17 +14,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @author Peter Kurfer
  * Created on 10/7/17.
  */
-public class AnimalTest {
+public class CatTest {
 
 	private static final int Sleep = 10;
 	private static final int Awake = 15;
 	private static final int Digest = 10;
 
-	private Animal animal;
+	private Cat animal;
 
 	@BeforeEach
 	void setUp() {
-		animal = new Animal(GenusSpecies.FLAMINGO, "Horst", new GenusSpecies[0], Sleep, Awake, Digest, 10);
+		animal = new Cat("Horst", Sleep, Awake, Digest);
 	}
 
 	@Test
